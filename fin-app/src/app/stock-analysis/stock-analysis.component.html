@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Analysis</title>
+
+</head>
+<body>
+    <header>
+        <h1>Stock Analysis Dashboard</h1>
+    </header>
+    <main>
+      <input type="text" id="stockSymbol" [(ngModel)]="selectedStock" placeholder="Enter Stock Symbol (e.g., AAPL)">
+      <button (click)="fetchStockData()"> Get Stock Data</button>
+      <div *ngIf="errorMessage" class="error">
+        {{ errorMessage }}
+      </div>
+      <div *ngIf="selectedStock">
+        {{ selectedStockDet }}
+      </div>
+      <label for="dropdown">Country</label>
+      <select id="dropdown" [(ngModel)]="country">
+        <option value="" disabled selected>Select an option</option>
+        <option *ngFor="let i of countries" [value]="i">
+          {{ i }}
+        </option>
+      </select>
+      <input type="text" name="country" [(ngModel)]="country" placeholder="Enter Country (e.g., USA)" />
+      <input type="text" name="state" [(ngModel)]="state" placeholder="Enter state (e.g., nc)" />
+
+    </main>
+
+</body>
+</html>
