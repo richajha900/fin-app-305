@@ -7,78 +7,79 @@
 
 </head>
 <body>
-    <main>
-      <input type="text" id="stockSymbol" [(ngModel)]="selectedStock" placeholder="Enter Stock Symbol (e.g., AAPL)">
-      <button (click)="fetchStockData()"> Get Stock Data</button>
-      <div *ngIf="errorMessage" class="error">
-        {{ errorMessage }}
-      </div>
-      <div *ngIf="selectedStockDet && !errorMessage" class="stock-data">
-        <h2>Stock Details</h2>
-        <table>
-          <tr>
-            <td><strong>Symbol:</strong></td>
-            <td>{{ selectedStockDet.symbol }}</td>
-          </tr>
-          <tr>
-            <td><strong>Price:</strong></td>
-            <td>${{ selectedStockDet.price }}</td>
-          </tr>
-          <tr>
-            <td><strong>Open:</strong></td>
-            <td>${{ selectedStockDet.open }}</td>
-          </tr>
-          <tr>
-            <td><strong>High:</strong></td>
-            <td>${{ selectedStockDet.high }}</td>
-          </tr>
-          <tr>
-            <td><strong>Low:</strong></td>
-            <td>${{ selectedStockDet.low }}</td>
-          </tr>
-          <tr>
-            <td><strong>Volume:</strong></td>
-            <td>{{ selectedStockDet.volume }}</td>
-          </tr>
-          <tr>
-            <td><strong>Latest Trading Day:</strong></td>
-            <td>{{ selectedStockDet.latestTradingDay }}</td>
-          </tr>
-          <tr>
-            <td><strong>Previous Close:</strong></td>
-            <td>${{ selectedStockDet.previousClose }}</td>
-          </tr>
-          <tr>
-            <td><strong>Change:</strong></td>
-            <td>
-              <span [ngClass]="{'positive': isPositive(selectedStockDet.change), 'negative': !isPositive(selectedStockDet.change)}">
-                {{ selectedStockDet.change }}
-              </span>
-            </td>
-          </tr>
-          <tr>
-            <td><strong>Percent Change:</strong></td>
-            <td>
-              <span [ngClass]="{'positive': isPositive(selectedStockDet.changePercent), 'negative': !isPositive(selectedStockDet.changePercent)}">
-                {{ selectedStockDet.changePercent }}
-              </span>
-            </td>
-          </tr>
-          <tr *ngIf="selectedStockOverview">
-            <td><strong>Market Cap:</strong></td>
-            <td>{{ selectedStockOverview.marketCap }}</td>
-          </tr>
-          <tr *ngIf="selectedStockOverview">
-            <td><strong>PE Ratio:</strong></td>
-            <td>{{ selectedStockOverview.peRatio }}</td>
-          </tr>
-          <tr *ngIf="selectedStockOverview">
-            <td><strong>Dividend Yield:</strong></td>
-            <td>{{ selectedStockOverview.dividendYield }}</td>
-          </tr>
-        </table>
-      </div>
-      <!--<label for="dropdown">Country</label>
+  <main>
+    <input type="text" id="stockSymbol" [(ngModel)]="selectedStock" placeholder="Enter Stock Symbol (e.g., AAPL)">
+    <button (click)="fetchStockData()"> Get Stock Data</button>
+    <span class = "stock-name">{{ selectedStockOverview.name }}</span>
+    <div *ngIf="errorMessage" class="error">
+      {{ errorMessage }}
+    </div>
+    <div *ngIf="selectedStockDet && !errorMessage" class="stock-data">
+      <h2>Stock Details</h2>
+      <table>
+        <tr>
+          <td><strong>Symbol:</strong></td>
+          <td>{{ selectedStockDet.symbol }}</td>
+        </tr>
+        <tr>
+          <td><strong>Price:</strong></td>
+          <td>${{ selectedStockDet.price }}</td>
+        </tr>
+        <tr>
+          <td><strong>Open:</strong></td>
+          <td>${{ selectedStockDet.open }}</td>
+        </tr>
+        <tr>
+          <td><strong>High:</strong></td>
+          <td>${{ selectedStockDet.high }}</td>
+        </tr>
+        <tr>
+          <td><strong>Low:</strong></td>
+          <td>${{ selectedStockDet.low }}</td>
+        </tr>
+        <tr>
+          <td><strong>Volume:</strong></td>
+          <td>{{ selectedStockDet.volume }}</td>
+        </tr>
+        <tr>
+          <td><strong>Latest Trading Day:</strong></td>
+          <td>{{ selectedStockDet.latestTradingDay }}</td>
+        </tr>
+        <tr>
+          <td><strong>Previous Close:</strong></td>
+          <td>${{ selectedStockDet.previousClose }}</td>
+        </tr>
+        <tr>
+          <td><strong>Change:</strong></td>
+          <td>
+            <span [ngClass]="{'positive': isPositive(selectedStockDet.change), 'negative': !isPositive(selectedStockDet.change)}">
+              {{ selectedStockDet.change }}
+            </span>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Percent Change:</strong></td>
+          <td>
+            <span [ngClass]="{'positive': isPositive(selectedStockDet.changePercent), 'negative': !isPositive(selectedStockDet.changePercent)}">
+              {{ selectedStockDet.changePercent }}
+            </span>
+          </td>
+        </tr>
+        <tr *ngIf="selectedStockOverview">
+          <td><strong>Market Cap:</strong></td>
+          <td>{{ selectedStockOverview.marketCap }}</td>
+        </tr>
+        <tr *ngIf="selectedStockOverview">
+          <td><strong>PE Ratio:</strong></td>
+          <td>{{ selectedStockOverview.peRatio }}</td>
+        </tr>
+        <tr *ngIf="selectedStockOverview">
+          <td><strong>Dividend Yield:</strong></td>
+          <td>{{ selectedStockOverview.dividendYield }}</td>
+        </tr>
+      </table>
+    </div>
+    <!--<label for="dropdown">Country</label>
   <select id="dropdown" [(ngModel)]="country">
     <option value="" disabled selected>Select an option</option>
     <option *ngFor="let i of countries" [value]="i">
@@ -88,7 +89,7 @@
   <input type="text" name="country" [(ngModel)]="country" placeholder="Enter Country (e.g., USA)" />
   <input type="text" name="state" [(ngModel)]="state" placeholder="Enter state (e.g., nc)" />-->
 
-    </main>
+  </main>
 
 </body>
 </html>
