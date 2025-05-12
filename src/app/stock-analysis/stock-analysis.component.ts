@@ -86,6 +86,7 @@ export class StockAnalysisComponent {
               // Merge Overview data into selectedStockDet
               this.selectedStockOverview = {
                 marketCap: data['MarketCapitalization'],
+                name: data['Name'] ,
                 peRatio: data['PERatio'],
                 dividendYield: data['DividendYield']
               };
